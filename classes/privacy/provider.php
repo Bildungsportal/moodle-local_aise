@@ -16,33 +16,23 @@
 
 /**
  * @package    local_aise
- * @copyright  2023 Austrian Federal Ministry of Education
+ * @copyright  2024 Austrian Federal Ministry of Education
  * @author     GTN solutions
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace local_aise\privacy;
 
 defined('MOODLE_INTERNAL') || die;
 
-/**
- * Ensures accent insensitive search for PostgreSQL-databases.
- * @param array $params
- * @param string $col
- * @param string $value
- * @param bool $casesensitive
- * @param bool $accentsensitive
- * @param bool $notlike
- * @param string $escapechar
- * @return string
- */
-function aise_like(string $fieldname, string $param, bool $casesensitive = false, bool $accentsensitive = false, bool $notlike = false, string $escapechar = "\\"): string {
-    return \local_aise\locallib::sql_like($fieldname, $param, $casesensitive, $accentsensitive, $notlike, $escapechar);
-}
-
-/**
- * This function is defined as a dummy to ensure, that lib.php is loaded by Moodle.
- * DO NOT DELETE!!!
- * @return void
- */
-function local_aise_after_config() {
+class provider implements \core_privacy\local\metadata\null_provider {
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason(): string {
+        return 'privacy:metadata';
+    }
 }

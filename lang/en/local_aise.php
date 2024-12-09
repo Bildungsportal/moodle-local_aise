@@ -23,3 +23,4 @@
 
 $string['pluginname'] = 'Accent Insensitive Search Enabler';
 $string['cachedef_application'] = 'Cache plugin specific options';
+$string['privacy:metadata'] = 'No personal data is stored with this plugin.';
