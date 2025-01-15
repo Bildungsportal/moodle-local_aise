@@ -26,5 +26,5 @@ defined('MOODLE_INTERNAL') || die;
 
 function xmldb_local_aise_install() {
     // Create extension unaccent
-    \local_aise\locallib::check_extension();
+    \local_aise\lib::check_extension();
 }

@@ -71,7 +71,7 @@ When they want to make an accent insensitive search, they can replace the above 
 
 ```php
 $searchname = $DB->sql_like_escape('jose');
-$sqllike = \local_aise\locallib::sql_like('firstname', '?');
+$sqllike = \local_aise\lib::sql_like('firstname', '?');
 $sqlparams = [ $searchname ];
 $sql = "SELECT *
           FROM {user}
@@ -87,5 +87,5 @@ The resulting sql query will look like this:
 SELECT * FROM mdl_user WHERE unaccent(firstname) ILIKE unaccent('jose') ESCAPE '\'
 ```
 
-The function `\local_eduportal\locallib::sql_like()` has the same signature as $DB->sql_like() and thus also accepts the parameters `$casesensitive`, `$accentsensitive`, `$notlike` and `$escapechar`. This ensures complete compatibility with the Moodle data manipulation API with minimal effort by developers.
-The only difference is, that \local_eduportal\locallib::sql_like() defaults to $casesenstive=false and $accentsensitive=false, whereas sql_like() defaults to $casesensitive=true and $accentsensitive=true.
+The function `\local_eduportal\lib::sql_like()` has the same signature as $DB->sql_like() and thus also accepts the parameters `$casesensitive`, `$accentsensitive`, `$notlike` and `$escapechar`. This ensures complete compatibility with the Moodle data manipulation API with minimal effort by developers.
+The only difference is, that \local_eduportal\lib::sql_like() defaults to $casesenstive=false and $accentsensitive=false, whereas sql_like() defaults to $casesensitive=true and $accentsensitive=true.
